@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <script src="stories.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<div class="top-bar">Story Reader</div>
+
+<div class="container">
+  <h2 id="storyTitleEl"></h2>
+  <div id="storyMeta"></div>
+
+  <div id="chapterNav" class="hidden"></div>
+  <div id="storyContent"></div>
+
+  <div class="rating">
+    <div id="starsWidget"></div>
+    <div id="avgRatingText"></div>
+    <div id="rating-result"></div>
+  </div>
+
+  <form id="commentForm">
+    <input id="commentAuthor" placeholder="Your name">
+    <textarea id="commentText"></textarea>
+    <button type="submit">Post Comment</button>
+  </form>
+
+  <ul id="commentsList"></ul>
+</div>
+
+</body>
+</html>
