@@ -6,26 +6,35 @@
   <script src="script_admin.js" defer></script>
 </head>
 <body>
+
 <div class="top-bar">Admin Panel</div>
 
 <div class="login-box">
   <input id="authUser" placeholder="Username">
   <input id="authPass" type="password" placeholder="Password">
   <button id="loginBtn">Login</button>
-  <button id="registerBtn">Register</button>
-  <button id="logoutBtn" class="hidden">Logout</button>
   <div id="loggedAs"></div>
 </div>
 
 <div id="adminPanel" class="hidden">
-  <input id="storyTitle" placeholder="Story title">
-  <input id="storyTags" placeholder="Tags">
-  <textarea id="storyContentInput"></textarea>
-  <button id="addStoryBtn">Add Story</button>
-  <button id="updateStoryBtn" class="hidden">Update Story</button>
+  <h3>Create / Edit Story</h3>
 
-  <h3>Stories</h3>
-  <div id="storyList"></div>
+  <input id="storyTitle" placeholder="Story Title">
+  <input id="storyTags" placeholder="Tags (comma separated)">
+
+  <div class="btn-group">
+    <button id="boldBtn"><b>B</b></button>
+    <button id="italicBtn"><i>I</i></button>
+    <button id="clearBtn">Clear</button>
+  </div>
+
+  <textarea id="editorBox" placeholder="Write story here..."></textarea>
+
+  <h3>Live Preview</h3>
+  <div id="livePreview" class="preview-box"></div>
+
+  <button id="addStoryBtn">Save Story</button>
 </div>
+
 </body>
 </html>
