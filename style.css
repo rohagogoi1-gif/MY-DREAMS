@@ -1,0 +1,46 @@
+body {
+  background: #0e0e0e;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.top-bar {
+  background: black;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.container {
+  padding: 15px;
+}
+
+input, textarea {
+  width: 100%;
+  margin: 5px 0;
+  padding: 8px;
+}
+
+button {
+  padding: 10px;
+  background: #222;
+  color: white;
+  border: none;
+  margin: 5px 0;
+}
+
+.hidden {
+  display: none;
+}
+/* ===== Editor Preview Styles (ADD AT THE BOTTOM) ===== */
+
+.preview-box {
+  background: #111;
+  border: 1px solid #333;
+  padding: 15px;
+  margin-top: 10px;
+  min-height: 150px;
+}
+
+textarea {
+  min-height: 200px;
+}
