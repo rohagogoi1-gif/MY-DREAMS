@@ -2,32 +2,46 @@ body {
   background: #0e0e0e;
   color: white;
   font-family: Arial, sans-serif;
+  margin: 0;
 }
 
 .top-bar {
   background: black;
-  padding: 10px;
+  padding: 15px;
   font-weight: bold;
 }
 
 .container {
-  padding: 15px;
+  padding: 20px;
 }
 
 input, textarea {
   width: 100%;
-  margin: 5px 0;
-  padding: 8px;
+  margin: 10px 0;
+  padding: 12px;
+  background: #161616;
+  border: 1px solid #333;
+  color: white;
 }
 
 button {
-  padding: 10px;
+  padding: 12px;
   background: #222;
   color: white;
   border: none;
-  margin: 5px 0;
+  margin: 10px 5px 10px 0;   /* ✅ fixed spacing */
+  border-radius: 6px;
 }
 
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;   /* ✅ space between buttons */
+}
+
+.hidden {
+  display: none;
+}
 .hidden {
   display: none;
 }
