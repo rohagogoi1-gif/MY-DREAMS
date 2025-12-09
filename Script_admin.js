@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const ADMIN_USER = "ROHAN";
   const ADMIN_PASS = "1234567890";
-  let currentStoryId = null;
 
   loginBtn.onclick = () => {
     if (authUser.value === ADMIN_USER && authPass.value === ADMIN_PASS) {
@@ -12,38 +11,41 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  // Better Editor buttons
+  boldBtn.onclick = () => insertText("**bold text**");
+  italicBtn.onclick = () => insertText("*italic text*");
+  clearBtn.onclick = () => editorBox.value = "";
+
+  function insertText(txt) {
+    const pos = editorBox.selectionStart;
+    const val = editorBox.value;
+    editorBox.value = val.slice(0, pos) + txt + val.slice(pos);
+    editorBox.focus();
+  }
+
+  // ✅ Live preview
+  editorBox.oninput = () => {
+    livePreview.innerHTML = parseText(editorBox.value);
+  };
+
+  function parseText(text) {
+    return text
+      .replace(/\*(.*?)\*/g, "<em>$1</em>")
+      .replace(/\*\*(.*?)\*\*/g, "<b>$1</b>")
+      .replace(/\n/g, "<br>");
+  }
+
+  // Save Story
   addStoryBtn.onclick = () => {
-    const newStory = {
+    const story = {
       title: storyTitle.value,
       tags: storyTags.value.split(","),
       chapters: [{
         title: "Chapter 1",
-        content: storyContentInput.value
+        content: parseText(editorBox.value)
       }]
     };
-    _AS.addStory(newStory);
-    alert("Story created");
-  };
-
-  // ✅ Chapter creator
-  const chapInput = document.createElement("input");
-  chapInput.placeholder = "New Chapter Title";
-  const chapBtn = document.createElement("button");
-  chapBtn.textContent = "Add Chapter";
-
-  adminPanel.appendChild(chapInput);
-  adminPanel.appendChild(chapBtn);
-
-  chapBtn.onclick = () => {
-    const all = _AS.getAll();
-    const last = all[all.length - 1];
-    if (!last) return alert("Create a story first!");
-
-    _AS.addChapter(last.id, {
-      title: chapInput.value,
-      content: "<p>New chapter</p>"
-    });
-
-    alert("Chapter added!");
+    _AS.addStory(story);
+    alert("Story saved");
   };
 });
